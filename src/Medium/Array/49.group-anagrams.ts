@@ -50,16 +50,35 @@
 */
 
 function groupAnagrams(strs: string[]): string[][] {
-    const anagramsMap: Map<number, string[]> = new Map();
+    const anagramsMap: Map<string, string[]> = new Map();
 
-    const countArray = new Array(26).fill(0);
+    const countArray = new Uint16Array(26);
 
     for (const str of strs) {
-        for (const char of str) {
-            countArray[char.charCodeAt(0) - 97]++; // 97 is the ASCII code for 'a'
+        countArray.fill(0); // Reset the count array for each string
+        for (let i = 0; i < str.length; i++) {
+            const idx = str.charCodeAt(i) - 97;
+            countArray[idx] = countArray[idx]! + 1;
         }
-        anagramsMap.get(countArray.)
+        const key = String.fromCharCode(...countArray.map(c => c + 97));
+        const items = anagramsMap.get(key);
+        if (items) items.push(str)
+        else anagramsMap.set(key, [str])
     }
 
-    return [["a"],["b"]]; // placeholder so it doesn't throw an error.
+    return Array.from(anagramsMap.values())
+};
+
+
+function groupAnagrams2(strs: string[]): string[][] {
+    const anagramsMap = new Map<string,string[]>();
+
+    for (const str of strs) {
+        const key = str.split('').sort().join(''); // really interesting way of sorting a string
+        const items = anagramsMap.get(key);
+        if (items) items.push(str)
+        else anagramsMap.set(key, [str])
+    }
+
+    return Array.from(anagramsMap.values())
 };

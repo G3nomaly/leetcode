@@ -1,0 +1,21 @@
+{
+  // suggestions never pop up on their own while typing identifiers
+  "editor.quickSuggestions": { "other": "off", "comments": "off", "strings": "off" },
+
+  // but DO pop up after "." — this is your map.get() case
+  "editor.suggestOnTriggerCharacters": true,
+
+  // no ghost text (Copilot / inline completions)
+  "editor.inlineSuggest.enabled": false,
+
+  // drop noise from the list when it does open
+  "editor.wordBasedSuggestions": "off",
+  "editor.suggest.showWords": false,
+  "editor.suggest.showSnippets": false,
+
+  // Enter always inserts a newline; Tab accepts
+  "editor.acceptSuggestionOnEnter": "off",
+
+  "editor.formatOnType": false,
+  "editor.parameterHints.enabled": true
+}
