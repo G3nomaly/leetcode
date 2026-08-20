@@ -49,14 +49,12 @@
 function topKFrequent(nums: number[], k: number): number[] {
     const counter = new Map<number, number>(); // number, [frequency, position]
 
-    for (const num of nums) {
-        const count = counter.get(num)
-        const newCount = count ? count + 1 : 1;
-        counter.set(num, newCount);
-    }
+    nums.forEach(num => {
+        counter.set(num, (counter.get(num) ?? 0) + 1)
+    })
 
     const topKKeys = [...counter.entries()]
-        .sort((a, b) => b[1] - a[1])
+        .sort((a, b) => b[1] - a[1]) // probably quick sort
         .slice(0, k)
         .map(([key]) => key);
 
