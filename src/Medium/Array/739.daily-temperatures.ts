@@ -16,6 +16,14 @@
  * Example 1:
  * 
  * Input: temperatures = [73,74,75,71,69,72,76,73]
+ * i = 7 result [0] stack: [7] 
+ * i = 6 stack: [] result: [0,0] stack: [6]
+ * i = 5 stack [6] result: [0,0,1] stack [6,5]
+ * i = 4 stack [6,5] result [0,0,1,1] stack [6,5,4]
+ * i = 3 stack [6,5] result [0,0,1,1,2] stack [6,5,3]
+ * i = 2 stack [6] result [0,0,1,1,2,4] stack [6,2]
+ * i = 1 stack [6,2] result [0,0,1,1,2,4,1] stack [6,2,1]
+ * i = 0 stack [6,2,1] result [0,0,1,1,2,4,1,1] stack [6,2,1,0]
  * Output: [1,1,4,2,1,1,0,0]
  * 
  * Example 2:
