@@ -12,5 +12,8 @@
   },
   "scripts": {
     "test": "bun scripts/test.ts"
+  },
+  "dependencies": {
+    "leetcode": "^2.0.0"
   }
 }
