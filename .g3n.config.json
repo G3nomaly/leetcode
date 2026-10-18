@@ -1,0 +1,15 @@
+{
+  "skills": {
+    "settings": {
+      "filetreeRoot": "docs/task-manager",
+      "targets": [
+        "codex",
+        "claude"
+      ],
+      "installDirs": {
+        "claude": ".claude/skills",
+        "codex": ".codex/skills"
+      }
+    }
+  }
+}
